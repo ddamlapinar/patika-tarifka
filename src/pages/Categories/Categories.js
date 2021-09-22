@@ -2,14 +2,13 @@ import React from 'react';
 import {View, FlatList} from 'react-native';
 import styles from './Categories.style';
 import useFetch from '../../hooks/useFetch';
-// import Config from 'react-native-config';
+import config from '../../../config.js';
 import Loading from '../../components/Loading';
 import Error from '../../components/Error';
 import CategoryCard from '../../components/CategoryCard';
 function Categories({navigation}) {
-  const {loading, error, data} = useFetch(
-    'https://www.themealdb.com/api/json/v1/1/categories.php',
-  );
+  console.log(config.API_URL_CATEGORIES);
+  const {loading, error, data} = useFetch(config.API_URL_CATEGORIES);
   const handleSelectCategory = strCategory => {
     navigation.navigate('MealsScreen', {strCategory});
   };
