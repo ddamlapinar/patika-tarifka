@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from 'react';
-import {View, Text, FlatList} from 'react-native';
+import React from 'react';
+import {View, FlatList} from 'react-native';
+import styles from './Categories.style';
 import useFetch from '../../hooks/useFetch';
 // import Config from 'react-native-config';
 import Loading from '../../components/Loading';
@@ -25,10 +26,11 @@ function Categories({navigation}) {
     return <Error />;
   }
   return (
-    <View>
+    <View style={styles.container}>
       <FlatList
         data={data.categories}
         renderItem={renderCategoryCard}
+        numColumns={2}
         keyExtractor={item => item.idCategory}
       />
     </View>

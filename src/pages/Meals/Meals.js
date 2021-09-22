@@ -4,6 +4,7 @@ import useFetch from '../../hooks/useFetch';
 import MealCard from '../../components/MealCard';
 import Loading from '../../components/Loading';
 import Error from '../../components/Error';
+import styles from './Meals.style';
 function Meals({navigation, route}) {
   const {strCategory} = route.params;
   const url = 'https://www.themealdb.com/api/json/v1/1/filter.php?c';
@@ -23,8 +24,7 @@ function Meals({navigation, route}) {
     return <Error />;
   }
   return (
-    <View>
-
+    <View style={styles.container}>
       <FlatList
         data={data.meals}
         renderItem={renderMealCard}

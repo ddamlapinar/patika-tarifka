@@ -3,13 +3,15 @@ import {View, Text, FlatList} from 'react-native';
 import useFetch from '../../hooks/useFetch';
 import Loading from '../../components/Loading';
 import Error from '../../components/Error';
+import DetailCard from '../../components/DetailCard';
+import styles from './Detail.style';
 function Detail({route}) {
   const {idMeal} = route.params;
   const url = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i';
   const {loading, error, data} = useFetch(`${url}=${idMeal}`);
   console.log(`${url}=${idMeal}`);
 
-
+  const renderDetailCard = ({item}) => <DetailCard detail={item} />;
   if (loading) {
     return <Loading />;
   }
@@ -17,10 +19,10 @@ function Detail({route}) {
     return <Error />;
   }
   return (
-    <View>
+    <View style={styles.container}>
       <FlatList
         data={data.meals}
-        renderItem={({item}) => <Text>{item.strInstructions}</Text>}
+        renderItem={renderDetailCard}
         keyExtractor={item => item.idMeal}
       />
     </View>
