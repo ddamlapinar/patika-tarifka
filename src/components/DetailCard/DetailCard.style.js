@@ -9,13 +9,15 @@ export default StyleSheet.create({
     resizeMode: 'cover',
   },
   infoContainer: {
-    paddingTop: 10,
+    paddingVertical: 10,
     paddingHorizontal: 10,
+    borderBottomWidth: 1,
+    borderColor: 'gray',
   },
   bodyContainer: {
-    padding: 10,
+    paddingHorizontal: 10,
     textAlign: 'auto',
-    marginBottom: 10,
+    marginVertical: 10,
   },
   instructionsText: {
     fontSize: 20,
@@ -23,9 +25,10 @@ export default StyleSheet.create({
   title: {
     fontWeight: 'bold',
     fontSize: 22,
+    color:'#c00'
   },
   subTitle: {
-    fontSize: 20,
+    fontSize: 16,
   },
   button: {
     padding: 15,
